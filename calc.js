@@ -52,31 +52,36 @@ if (action === 'calcular') {
 // Calculadora core
 let operaciones = {
   sumar(...numeros) {
-    return numeros.reduce(function(ant, sig) {
+    resultado += numeros.reduce(function(ant, sig) {
       return ant + sig
     })
+    return this
   },
   restar(...numeros) {
-    return numeros.reduce(function(ant, sig) {
+    resultado -= numeros.reduce(function(ant, sig) {
       return ant - sig
     })
+    return this
 },
   multiplicar(...numeros) {
-    return numeros.reduce(function (ant, sig) {
+    resultado *= numeros.reduce(function (ant, sig) {
       return ant * sig
     })
     return this
   },
   dividir (...numeros) {
-    return numeros.reduce(function (ant, sig) {
+    resultado /= numeros.reduce(function (ant, sig) {
       return ant / sig
     })
+    return this
   }
 };
 // Fin calculadora core
+let calcu = new calc()
+let resultado = 0
 
 function calc() {
-  let resultado = 0;
+
   function getResultado () {
     return resultado
   }
@@ -90,9 +95,11 @@ function calc() {
     ...operaciones
   }
 }
-let calcu = new calc()
+
 
 
 console.log(calcu);
-console.log(calcu.dividir(3,4,6))
+
+calcu.sumar(3,4,6).sumar(48).dividir(2).multiplicar(5)
+
 console.log(calcu.getResultado());
