@@ -102,4 +102,4 @@ console.log(calcu);
 
 calcu.sumar(3,4,6).sumar(48).dividir(2).multiplicar(5)
 
-console.log(calcu.getResultado());
+console.log(calcu.getResultado())
